@@ -96,6 +96,13 @@ print(r"run\ndoo")
 #--python没有单独的字符类型，一个字符就是长度为1的字符串
 #--python中字符串不能被改变，向一个索引位置赋值，比如word[0]='m'，会导致错误
 #--python字符串有两种索引方式，从左往右以0开始，从右往左以-1开始
+#--3个单引号或3个双引号允许一个字符串跨多行，且字符串中可以包含换行符、制表符以及其他特殊符号
+#--3个引号表示的字符串自始至终保持字符串的格式（所见即所得）
+para_str = """这个是多行字符串\n
+这个是多行字符串
+这个是多行字符串
+"""
+print(para_str)
 
 print('-'*8, "List", '-'*8)
 #List（列表）
@@ -107,6 +114,7 @@ print('-'*8, "List", '-'*8)
 #--加号（+）是列表连接运算符，星号（*）是重复操作
 #--列表的元素可以被改变
 #--List内置了很多方法，例如append(), pop()等等
+#--List使用del来删除元素
 list = ['abc', 89, 2.23, 'runoob', 70.2]
 tinylist = [123, 'runoob']
 print(list)
@@ -116,6 +124,7 @@ print(list[2:])
 print(tinylist*2)
 print(list + tinylist)
 list[1] = 100
+del list[4]
 print(list)
 
 print('-'*8, "Tuple", '-'*8)
@@ -177,6 +186,7 @@ print('-'*8, "Dictionary", '-'*8)
 #--字典是一种映射，用大括号{}标识，是一个无序的键(key):值(value)对集合
 #--键必须使用不可变类型
 #--同一个字典中，key必须时唯一的
+#--使用del可以删除一个字典，clear()可以清空字典
 dicti = {}
 dicti['one'] = '1 - 菜鸟工具'
 dicti[2] = "2 - 菜鸟教程"
@@ -189,6 +199,8 @@ print(tinydict.values())    # 输出所有值
 #--构造函数dict()可以直接从键值对序列中构建字典
 print(dict([('runoob', 1), ('google', 2), ("taobao", 3)]))
 print(dict(runoob = 1, goole = 2, taobao = 3))
+dicti.clear()
+print(dicti)
 #--字典内部使用了散列表（hashtable）的算法，不管字典有多少项，in操作符花费的时间都差不多
 
 print('-'*8, "数据类型转换", '-'*8)
