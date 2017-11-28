@@ -67,3 +67,18 @@ print("abc");print("efg", end="");print("hijk")
 from sys import argv,path
 print("==========python from...import============")
 print('path:',path)# 因为已经导入path成员，所以此处引用时不需要加sys.path
+
+#注释
+#--以#开头表示单行注释
+#--多行注释用三个单引号'''或者三个双引号"""将注释内容包围起来
+#e.g.
+'''
+这是一个多行注释
+这是一个多行注释
+这是一个多行注释
+‘’‘
+"""
+这是一个多行注释
+这是一个多行注释
+这是一个多行注释
+"""
