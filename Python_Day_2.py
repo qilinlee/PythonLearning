@@ -189,6 +189,7 @@ print(tinydict.values())    # 输出所有值
 #--构造函数dict()可以直接从键值对序列中构建字典
 print(dict([('runoob', 1), ('google', 2), ("taobao", 3)]))
 print(dict(runoob = 1, goole = 2, taobao = 3))
+#--字典内部使用了散列表（hashtable）的算法，不管字典有多少项，in操作符花费的时间都差不多
 
 print('-'*8, "数据类型转换", '-'*8)
 #数据类型转换
