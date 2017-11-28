@@ -201,3 +201,4 @@ print(str(3.5))
 print(str([3,'2aa', 4.5]))
 print(hex(15))#转换为十六进制
 print(oct(15))#转换为八进制
+print(bin(3))#转换未二进制
