@@ -142,3 +142,112 @@ while True:
     except StopIteration:
         #sys.exit()            
         break
+
+#函数
+#--函数是组织好的，可重复使用的，用来实现单一功能，或相关联功能的代码段
+#--函数能提高应用的模块性，和代码的重复利用率
+#--函数代码块以def关键字开头，后接函数标识符和圆括号()
+#--任何传入参数和自变量必须放在圆括号内，圆括号之间可以用于定义参数
+#--函数的第一行可以选择性地实用文档字符串，用于存放函数说明
+#--函数内容以冒号开始，并且缩紧
+#--return [表达式]结束函数，选择性地返回一个值给调用方，不带表达式的return相当于返回None
+#--一般格式：
+#   def functionname(arguments):
+#       fuction block
+#--默认情况下，参数值和参数名称是按函数声明中定义的顺序匹配
+def Hello():
+    print("Hello, world!")
+
+Hello()#调用Hello函数
+
+def area(width, height):
+    return width * height
+
+print(area(10, 5))#调用area函数并输出返回值
+
+#参数传递：
+#   按值传递：不可变类型，字符串、数字、元组
+#   按引用传递：可变类型，列表，字典、集合
+def changeInt(args):
+    args = 10
+
+temp = 2
+print("temp = ", temp, end=" ")
+changeInt(temp)
+print("temp = ", temp)
+
+#--函数参数类型：必需参数、关键字参数、默认参数、不定长参数
+#--必需参数：必须以正确的顺序传人函数，调用时的数量必须和声明时的一样
+#--关键字参数：关键字参数与函数调用关系紧密，函数调用使用关键字参数来确定传人的参数值
+#  使用关键字参数允许函数调用时参数的顺序与声明时不一致，因为python解释器能够用参数名匹配参数
+def printme(str, str2):
+    print(str, str2);
+    return ;
+printme(str2="google", str = "runoob")
+#--默认参数：调用函数时，如果没有传递参数，则会使用默认参数。在声明的参数列表中，使用等号进行指定默认值
+#  默认参数必须放在函数参数列表的最后
+def printinfo(name, age = 100):
+    print("Name : ", name, " \t age : ", age)
+    return
+printinfo("google", 10)
+printinfo("baidu")
+#--不定长参数：参数个数不时固定的。声明时不会命名
+#   def fuctionname([formal_args],*var_args_tuple)
+#       function_suite
+#       return [expression]
+#--加了星号的变量名会存放所有未命名的变量参数。如果函数调用时没有指定参数，它将是一个空元组。也可以不向
+#  函数传递未命名的变量
+def printinfo(arg1, *vartuple):
+    print("output:")
+    print(arg1);
+    for var in vartuple:
+        print(var)
+    return;
+printinfo(10)
+printinfo(70, 60, 50)
+
+#匿名函数
+#--python使用lambda表达式来创建匿名函数
+#--lambda表达式只是一个表达式，函数体比def简单很多
+#--lambda表达式主体是一个表达式，不是代码块，仅仅能在lamda表达式中封装有限的逻辑
+#--lambda表达式拥有自己命名空间，且不能访问子句参数列表以外或全局命名空间里的参数
+#--一般形式：
+#   lambda 【arg1，[arg2, ... , argn]]:expression
+s = lambda arg1, arg2: arg1 + arg2;
+print(s(10, 11))
+
+#return语句
+#--return [表达式]语句用于退出函数
+
+#变量作用域
+#--变量的访问权限取决于变量在哪里赋值，即变量的作用域决定了哪一部分程序可以访问哪个特定的变量名称
+#--python的作用域有4中：Local(局部作用域)、Enclosing(闭包函数外的函数中)、Global(全局作用域)、Built-in(内建作用域)
+#--python变量查找规则：L->E->G->B。
+#--python中只有模块(module)、类（class）以及函数（def、lambda）才会引入新的作用域，其他代码块不会引入新的作用域
+#--局部变量：定义在函数内部的变量拥有一个局部作用域。局部变量只能在其被声明的函数内访问
+#--全局变量：可以在整个程序范围内访问。
+
+#global与nonlocal关键字
+#--当内部作用域修改外部作用域的变量时，就要用到glocal和nonlocal关键字
+num = 1
+def fun1():
+    global num #需要使用global关键字声明
+    print(num)
+    num = 123
+    print(num)
+    return
+fun1()
+#--如果要修改嵌套作用域中变量则需要nonlocal关键字
+def outer():
+    n = 10
+    def inner():
+        nonlocal n
+        print(n)
+        n = 100
+        print(n)
+        return
+    inner()
+    print(n)
+    return
+outer()
+
